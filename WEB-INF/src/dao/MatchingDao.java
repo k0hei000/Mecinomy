@@ -5,9 +5,12 @@ import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 
 import bean.GroupBean;
+import bean.MatchingBean;
+import bean.PostBean;
 
 public class MatchingDao extends DbConnectDao{
-		public boolean addNewGroup(GroupBean newGroup) throws SQLException{
+	
+		public MatchingBean addNewGroup(PostBean newPost) throws SQLException{
 			PreparedStatement pstmt1=null;
 			PreparedStatement pstmt2=null;
 

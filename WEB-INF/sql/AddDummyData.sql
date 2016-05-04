@@ -1,23 +1,29 @@
-insert into usertable values ('C0002', '‘å˜^‚Ü‚³‚Ğ‚ë', 'password', 'test', 'test', 'masahiro.oroku@gmail.com',0);
-insert into usertable values ('rrrr2', '‘å˜^‚Ü‚³‚Ğ', 'password', 'test', 'test', 'masahiro.oroku2@gmail.com',0);
-insert into usertable values ('rrrr', '‘å˜^‚Ü‚³‚Ğ', 'password', 'test', 'test', 'masahiro.oroku2@gmail.com',0);
-insert into usertable values ('1111', '‘å˜^‚Ü‚³', 'password', 'test', 'test', 'masahiro.oroku3@gmail.com',0);
-insert into usertable values ('aaaa', '‘å˜^', 'password', 'test', 'test', 'masahiro.oroku4@gmail.com',0);
+insert into usertable (user_id,user_name,password,user_image,description,address,is_delete)values ('C0002', 'ï¿½ï¿½^ï¿½Ü‚ï¿½ï¿½Ğ‚ï¿½', 'password', 'test', 'test', 'masahiro.oroku@gmail.com',0);
+insert into usertable (user_id,user_name,password,user_image,description,address,is_delete)values ('rrrr2', 'ï¿½ï¿½^ï¿½Ü‚ï¿½ï¿½ï¿½', 'password', 'test', 'test', 'masahiro.oroku2@gmail.com',0);
+insert into usertable (user_id,user_name,password,user_image,description,address,is_delete)values ('rrrr', 'ï¿½ï¿½^ï¿½Ü‚ï¿½ï¿½ï¿½', 'password', 'test', 'test', 'masahiro.oroku2@gmail.com',0);
+insert into usertable (user_id,user_name,password,user_image,description,address,is_delete)values ('1111', 'ï¿½ï¿½^ï¿½Ü‚ï¿½', 'password', 'test', 'test', 'masahiro.oroku3@gmail.com',0);
+insert into usertable (user_id,user_name,password,user_image,description,address,is_delete)values ('aaaa', 'ï¿½ï¿½^', 'password', 'test', 'test', 'masahiro.oroku4@gmail.com',0);
 
-insert into grouptable values ('JAVAJAVA‡h','url','–‹’£‚Å‡h‚ğ‚µ‚Ä‚¢‚Ü‚·',0);
-insert into grouptable values ('JAVAJAVA‡h2','url','–‹’£2‚Å‡h‚ğ‚µ‚Ä‚¢‚Ü‚·',0);
-insert into grouptable values ('JAVAJAVA‡h3','url','–‹’£3‚Å‡h‚ğ‚µ‚Ä‚¢‚Ü‚·',1);
+insert into grouptable (group_name,group_image,description,is_delete)values ('teamA','url','ï¿½ï¿½ï¿½ï¿½ï¿½Åï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½',0);
+insert into grouptable (group_name,group_image,description,is_delete)values ('teamB','url','ï¿½ï¿½ï¿½ï¿½2ï¿½Åï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½',0);
+insert into grouptable (group_name,group_image,description,is_delete)values ('teamC','url','ï¿½ï¿½ï¿½ï¿½3ï¿½Åï¿½ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½',1);
 
-insert into post values ('00001','aaaa','00001',1,'1800','2000',0,'');
-insert into post values ('00002','1111','00002',1,'1800','2000',0,'');
-insert into post values ('00003','rrrr','00002',1,'1900','2100',0,'');
+insert into post values (seq_post_id.nextval,'aaaa','00001',1,'1800','2000',0,'');
+insert into post values (seq_post_id.nextval,'1111','00002',1,'1800','2000',0,'');
+insert into post values (seq_post_id.nextval,'rrrr','00002',1,'1900','2100',0,'');
 
-insert into matching values ('00001','1900',1,0);
-insert into matching values ('00002','1930',0,1);
-insert into matching values ('00003','1930',0,1);
+insert into matching values (seq_matching_id.nextval,'1900',1,0);
+insert into matching values (seq_matching_id.nextval,'1930',0,1);
+insert into matching values (seq_matching_id.nextval,'1930',0,1);
 
-insert into usergroup values ('00001','C0002','JAVAJAVA‡h',0);
-insert into usergroup values ('00002','rrrr','JAVAJAVA‡h2',1);
-insert into usergroup values ('00003','rrrr','JAVAJAVA‡h3',1);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'C0002','teamA',0);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'rrrr2','teamB',0);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'rrrr2','teamC',1);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'rrrr','teamA',0);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'rrrr','teamB',0);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'1111','teamC',1);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'aaaa','teamA',1);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'aaaa','teamB',1);
+insert into usergroup (user_group_id,user_id,group_name,is_ignore)values (seq_user_group_id.nextval,'aaaa','teamC',1);
 
 commit;
