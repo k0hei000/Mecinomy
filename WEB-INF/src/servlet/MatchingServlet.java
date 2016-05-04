@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import jp.recruit.logic.ChangeStockLogic;
+import logic.MatchingLogic;
 
 public class MatchingServlet extends HttpServlet {
 
@@ -30,11 +31,7 @@ public class MatchingServlet extends HttpServlet {
 		//セッションの取得（なければ作成）
 		HttpSession session = request.getSession(false);
 		//更新のロジック
-		ChangeStockLogic logic = new ChangeStockLogic();
+		MatchingLogic logic = new MatchingLogic();
 
 	}
-int purpose;
-int timeHour;
-int timeMin;
-
 }
