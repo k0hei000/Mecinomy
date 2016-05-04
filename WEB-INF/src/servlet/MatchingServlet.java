@@ -8,6 +8,7 @@ import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import bean.MatchingBean;
 import bean.PostBean;
 import logic.MatchingLogic;
-
+@WebServlet("/Matching")
 public class MatchingServlet extends HttpServlet {
 
 	/**
@@ -34,7 +35,7 @@ public class MatchingServlet extends HttpServlet {
 		String purpose = request.getParameter("purpose");
 		String timeStart = request.getParameter("timeStart");
 		String timeEnd = request.getParameter("timeEnd");
-		String userId = request.getParameter("userId");
+		String userId = (String) session.getAttribute("userId");
 		if (userId == null || purpose == null) {
 			error.add("null user or purpose!");
 			System.out.println("error!");
