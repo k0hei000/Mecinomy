@@ -3,6 +3,14 @@ package bean;
 public class PostBean implements java.io.Serializable{
 	private static final long serialVersionUID = 2137456818742159879L;
 
+	private String postId;
+	public String getPostId() {
+		return postId;
+	}
+
+	public void setPostId(String postId) {
+		this.postId = postId;
+	}
 	private String matchingId;
 	private String purpose;
 	private String timeStart;
