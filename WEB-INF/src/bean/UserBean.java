@@ -28,7 +28,7 @@ public class UserBean implements java.io.Serializable {
 	}
 
 	public void setUserId(String userId){
-		if(userId!=null&&userId.equals("")){
+		if(userId!=null&&!userId.equals("")){
 			this.userId = userId;
 		}else{
 			System.err.println("(UserBean)idが空またはnullです。");
@@ -40,7 +40,7 @@ public class UserBean implements java.io.Serializable {
 	}
 
 	public void setUserName(String userName){
-		if(userName!=null&&userName.equals("")){
+		if(userName!=null&&!userName.equals("")){
 			this.userName = userName;
 		}else{
 			System.err.println("(UserBean)userNameが空またはnullです。");
@@ -52,7 +52,7 @@ public class UserBean implements java.io.Serializable {
 	}
 
 	public void setPassword(String password){
-		if(password!=null&&password.equals("")){
+		if(password!=null&&!password.equals("")){
 			this.password = password;
 		}else{
 			System.err.println("(UserBean)passwordが空またはnullです。");
@@ -64,7 +64,7 @@ public class UserBean implements java.io.Serializable {
 	}
 
 	public void setUserImage(String userImage){
-		if(userImage!=null&&userImage.equals("")){
+		if(userImage!=null&&!userImage.equals("")){
 			this.userImage = userImage;
 		}else{
 			System.err.println("(UserBean)userImageが空またはnullです。");
@@ -76,7 +76,7 @@ public class UserBean implements java.io.Serializable {
 	}
 
 	public void setDescription(String description){
-		if(description!=null&&description.equals("")){
+		if(description!=null&&!description.equals("")){
 			this.description = description;
 		}else{
 			System.err.println("(UserBean)descriptionが空またはnullです。");
@@ -88,7 +88,7 @@ public class UserBean implements java.io.Serializable {
 	}
 
 	public void setAddress(String address){
-		if(address!=null&&address.equals("")){
+		if(address!=null&&!address.equals("")){
 			this.address = address;
 		}else{
 			System.err.println("(UserBean)addressが空またはnullです。");
