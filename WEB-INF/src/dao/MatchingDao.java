@@ -11,7 +11,8 @@ import bean.PostBean;
 
 public class MatchingDao extends DbConnectDao{
 
-	public MatchingBean addNewGroup(PostBean newPost) throws SQLException{
+	public MatchingBean isMatching(PostBean newPost) throws SQLException{
+		PreparedStatement pstmt=null;
 		PreparedStatement pstmt1=null;
 		PreparedStatement pstmt2=null;
 		PreparedStatement pstmt3=null;
@@ -22,8 +23,15 @@ public class MatchingDao extends DbConnectDao{
 
 		ArrayList<String> groupList = new ArrayList<String>();
 		try {
+			//自分のpostをデータベースへ
+			String sql="insert into post (post_id,user_id,purpose)values (seq_post_id.nextval,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,newPost.getUserId());
+			pstmt.setString(2,newPost.getPurpose());
+			pstmt.executeUpdate();
+
 			//ユーザの所属するグループすべてをgroupListへ投入
-			String sql1="select group_name from usergroup where user_id = ?";
+			String sql1="select group_name from usergroup where user_id = ? ";
 			pstmt1 = con.prepareStatement(sql1);
 			pstmt1.setString(1,newPost.getUserId());
 			rs = pstmt1.executeQuery();
@@ -74,6 +82,7 @@ public class MatchingDao extends DbConnectDao{
 					//matchingへ要素追加
 					matching.setPurpose(newPost.getPurpose());
 					//データベースへ
+					System.out.println("マッチング成立しました");
 					String sql4="insert into matching (matching_id,purpose) values (seq_matching_id.nextval,?)";
 					pstmt4 = con.prepareStatement(sql4);
 					pstmt4.setString(1,matching.getPurpose());
@@ -85,10 +94,13 @@ public class MatchingDao extends DbConnectDao{
 						String sql5="update post set matching_id = ? where post_id = ?";
 						pstmt5 = con.prepareStatement(sql5);
 						pstmt5.setString(1,"3");
-						pstmt5.setString(1,post.getPostId());
+						pstmt5.setString(2,post.getPostId());
 						pstmt5.executeUpdate();
 					}
-				}				}
+				}else{
+					System.out.println("マッチング成立しませんでした");
+				}
+				}
 
 
 
