@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.naming.NamingException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +29,10 @@ public class LoginServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		ArrayList<String> error = new ArrayList<String>();
-		ServletContext sc=null;
+//		ServletContext sc=null;
+		//ServletContextオブジェクトを取得
+		ServletContext sc = this.getServletContext();
+
 		String destination=null;
 
 		HttpSession session = request.getSession(true);
@@ -72,7 +76,7 @@ public class LoginServlet extends HttpServlet {
 					//ログイン属性詰め直し
 					session.setAttribute("userId", userBean.getUserId());
 					session.setAttribute("password", userBean.getPassword());
-					destination="/WEB-INF/post/Post.jsp";
+					destination="/WEB-INF/jsp/post/Post.jsp";
 				}else{
 					//ユーザー名かパスワードが間違っている場合の処理
 					error.add("ログイン処理に失敗しました。ユーザー名とパスワードが間違っている可能性があります");
@@ -100,8 +104,12 @@ public class LoginServlet extends HttpServlet {
 			sc.getRequestDispatcher(destination).forward(request, response);
 			return;
 		}else{//正常系
-			System.out.println("リダイレクト先："+request.getContextPath()+destination);
-			response.sendRedirect(request.getContextPath()+destination);
+//			System.out.println("リダイレクト先："+request.getContextPath()+destination);
+//		response.sendRedirect(request.getContextPath()+destination);
+			//RequestDispatcherオブジェクトを取得
+			RequestDispatcher rd = sc.getRequestDispatcher(destination);
+			//forwardメソッドで、処理をreceive.jspに転送
+			rd.forward(request, response);
 			return;
 		}
 
