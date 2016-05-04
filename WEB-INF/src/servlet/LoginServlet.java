@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 		}
 
 		//ログイン処理後の転送先
-		destination = "WEB-INF/post/Post.jsp";
+		destination = "/WEB-INF/post/Post.jsp";
 
 		String userId="";
 		String password="";
@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 		//ServletContextオブジェクトを取得
 		sc = this.getServletContext();
 		//顧客IDの取得
-		userId=request.getParameter("username").trim();
+		userId=request.getParameter("userId").trim();
 		//パスワードの取得
 		password=request.getParameter("password").trim();
 
@@ -70,9 +70,9 @@ public class LoginServlet extends HttpServlet {
 					session.invalidate();
 					session = request.getSession(true);
 					//ログイン属性詰め直し
-					session.setAttribute("username", userBean.getUserId());
-					session.setAttribute("descript", userBean.getPassword());
-					destination="WEB-INF/post/Post.jsp";
+					session.setAttribute("userId", userBean.getUserId());
+					session.setAttribute("password", userBean.getPassword());
+					destination="/WEB-INF/post/Post.jsp";
 				}else{
 					//ユーザー名かパスワードが間違っている場合の処理
 					error.add("ログイン処理に失敗しました。ユーザー名とパスワードが間違っている可能性があります");
@@ -90,7 +90,7 @@ public class LoginServlet extends HttpServlet {
 			//最終的になんらかの障害が発生している
 			error.add("(LoginServlet)ログインに失敗しました。");
 			session.setAttribute("errormessage",error);
-			destination="/WEB-INF/jsp/common/LoginError.jsp";
+			destination = "/Index";
 		}
 
 		if(!error.isEmpty()){//異常系
