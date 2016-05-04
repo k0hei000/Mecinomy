@@ -51,9 +51,9 @@ public class MatchingServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		if(match == null){
-			destination = "wait.jsp";
+			destination = "jsp/match/wait.jsp";
 		} else {
-			destination = "matching.jsp";
+			destination = "jsp/match/match.jsp";
 		}
 		//RequestDispatcherオブジェクトを取得
 		RequestDispatcher rd = sc.getRequestDispatcher(destination);
