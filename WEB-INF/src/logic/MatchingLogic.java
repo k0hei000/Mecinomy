@@ -21,7 +21,7 @@ public class MatchingLogic extends AbstractLogic{
 //		Connection con=null;
 		try{
 			matchingDao.getConnection();
-			matchingDao.???(post);
+			matchingBean = matchingDao.isMatching(post);
 		}finally{
 			matchingDao.closeConnection();
 		}
