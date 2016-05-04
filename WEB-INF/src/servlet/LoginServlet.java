@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 		//ServletContextオブジェクトを取得
 		sc = this.getServletContext();
 		//顧客IDの取得
-		userId=request.getParameter("username").trim();
+		userId=request.getParameter("userId").trim();
 		//パスワードの取得
 		password=request.getParameter("password").trim();
 

@@ -8,5 +8,5 @@
     <updateXml>true</updateXml>
     <warLocation></warLocation>
     <extraInfo></extraInfo>
-    <webPath>/testm</webPath>
+    <webPath>/Invitator</webPath>
 </tomcatProjectProperties>
